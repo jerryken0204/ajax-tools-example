@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=inpu, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="get" id="get" >
+    <input type="button" value="post" id='post'>
+    <input type="button" value="send json" id="json">
+    <input type="button" value="send xml" id="xml">
+</body>
+</html>
+
+<script src="./ajax.js"></script>
+<script>
+     document.getElementById('get').onclick = function(){
+         ajax({
+             type:'get',
+             data:'name=test&age=1',
+             url:'./01.backSendData.php',
+             success:function(data){
+                 console.log(data);
+             }
+         })
+     }
+
+     document.getElementById('post').onclick = function(){
+         ajax({
+             type:'post',
+             data:'name=jerrt&age=222',
+             url:'./01.backSendData.php',
+             success:function(data){
+                 console.log(data);
+             }
+         })
+     }
+
+     document.getElementById('json').onclick =function(){
+         ajax({
+             type:'get',
+             data: 'name=tom&age=700',
+             url:'./backJSON.php',
+             success:function(data){
+                 console.log(data);
+             }
+         })
+     }
+
+     document.getElementById('xml').onclick = function(){
+         ajax({
+             type :'get',
+             data:'nam=lal&test=1',
+             url:'./backXML.php',
+             success:function(data){
+                 console.log(data);
+             }
+         })
+     }
+</script>
